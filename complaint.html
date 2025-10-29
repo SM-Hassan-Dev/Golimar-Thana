@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sindh Police - Complaint Registration</title>
+
+<!-- Bootstrap & FontAwesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+:root { --red:#d40000; }
+
+body {
+  background:#0a0f14;
+  color:#e4e9f2;
+  padding-top:80px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Navbar */
+.navbar { background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); border-bottom:2px solid var(--red); }
+.nav-link { color:#cfd5e3!important; font-weight:600; margin:0 8px; }
+.nav-link.active, .nav-link:hover { color:#ff3c3c!important; }
+.navbar-brand { display:flex; align-items:center; gap:10px; font-weight:900; color:#fff!important; }
+.nav-logo { width:40px; filter:drop-shadow(0 0 5px #ff0000); }
+
+/* Form Card */
+.card-form {
+  background:#11161c;
+  border:1px solid #2b3847;
+  border-radius:12px;
+  padding:30px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+}
+.card-form h2 { color:#ff3c3c; font-weight:700; }
+
+/* Inputs */
+.form-control, textarea {
+  background:#1a222c!important;
+  border:1px solid #2b3847!important;
+  color:#fff!important;
+}
+.form-control:focus {
+  border-color:#ff3c3c!important;
+  box-shadow:0 0 8px rgba(255,50,50,0.6)!important;
+}
+
+/* Buttons */
+.btn-primary { background:#d80000; border:none; font-weight:bold; }
+.btn-primary:hover { background:#b10000; }
+.btn-secondary { background:#444; border:none; }
+.btn-secondary:hover { background:#555; }
+
+/* Footer */
+footer { background: rgba(6,6,6,0.95); border-top:4px solid var(--red); color:#d9d9d9; padding:34px 0 18px; margin-top:40px; }
+.footer a { color:#ddd!important; text-decoration:none; transition:.22s ease; }
+.footer a:hover { color:var(--red)!important; padding-left:3px; }
+.footer h6 { color:var(--red)!important; letter-spacing:.5px; font-weight:600; }
+.footer ul li { margin-bottom:6px; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="sindh police logo.png" class="nav-logo">
+      <div style="line-height:1;">
+        <div style="font-weight:900; font-size:1rem;">Sindh Police</div>
+        <div style="font-size:0.78rem; color:#c8d3e6;">Golimar Thana</div>
+      </div>
+    </a>
+    <button class="navbar-toggler btn btn-dark" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <i class="fa fa-bars" style="color:#fff"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About Police Station</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="fir.html">FIR Registration</a></li>
+        <li class="nav-item"><a class="nav-link active" href="complaint.html">Complaint Cell</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="container py-5">
+  <div class="card card-form mx-auto" style="max-width:650px;">
+    <h2 class="text-center mb-4 ">Complaint Registration</h2>
+    <form id="complaintForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label text-white">Full Name</label>
+        <input type="text" id="c_name" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label text-white">Email</label>
+        <input type="email" id="c_email" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label text-white">Phone (03XX-XXXXXXX)</label>
+        <input type="text" id="c_phone" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label text-white">Subject</label>
+        <input type="text" id="c_subject" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label text-white">Complaint Details</label>
+        <textarea class="form-control" id="c_details" rows="5" required></textarea>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" id="previewBtn">Preview</button>
+        <button type="submit" class="btn btn-primary">Submit Complaint</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Preview Modal -->
+<div class="modal fade" id="previewModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-light p-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">Complaint Preview</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="previewContent"></div>
+      <div class="modal-footer border-0">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
+        <button class="btn btn-primary" id="confirmSubmitBtn">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light text-center p-4">
+      <h4 class="text-success">✅ Complaint Submitted Successfully</h4>
+      <p>We will contact you soon.</p>
+      <button class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer text-light">
+  <div class="container py-5">
+    <div class="row g-4">
+      <div class="col-md-4 text-center text-md-start">
+        <img src="sindh police logo.png" class="logo mb-3" alt="Logo" style="height:70px;">
+        <p class="small text-white">Golimar Thana — Duty, Courage & Justice. Securing every street, protecting every citizen.</p>
+        <a href="tel:15" class="btn btn-urgent mt-2 w-100 fw-bold"><i class="fa fa-phone me-2"></i>Emergency Helpline: 15</a>
+      </div>
+      <div class="col-md-2">
+        <h6 class="fw-bold text-uppercase mb-3" style="color:var(--red)">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Station</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="fir.html">FIR Registration</a></li>
+          <li><a href="complaint.html">Complaint Cell</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <h6 class="fw-bold text-uppercase mb-3" style="color:var(--red)">Contact Info</h6>
+        <ul class="list-unstyled small">
+          <li><i class="fa fa-location-dot me-2"></i>Golimar, Karachi</li>
+          <li><i class="fa fa-envelope me-2"></i>contact@golimarpolice.pk</li>
+          <li><i class="fa fa-phone me-2"></i>021-XXXXXXX</li>
+        </ul>
+      </div>
+      <div class="col-md-3 text-center text-md-start">
+        <h6 class="fw-bold text-uppercase mb-3" style="color:var(--red)">Stay Connected</h6>
+        <div class="d-flex gap-3 justify-content-center justify-content-md-start fs-5">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center py-3 small" style="background:rgba(255,0,0,0.06); border-top:1px solid rgba(255,0,0,0.2);">
+    © <span id="year"></span> Sindh Police - Golimar Thana. All Rights Reserved.
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const previewModal = new bootstrap.Modal(document.getElementById('previewModal'));
+const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+const form = document.getElementById('complaintForm');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault(); // prevent default
+});
+
+// Preview button click
+document.getElementById('previewBtn').addEventListener('click', () => {
+  const name = document.getElementById('c_name').value.trim();
+  const email = document.getElementById('c_email').value.trim();
+  const phone = document.getElementById('c_phone').value.trim();
+  const subject = document.getElementById('c_subject').value.trim();
+  const details = document.getElementById('c_details').value.trim();
+
+  // Regex validation
+  const nameRegex = /^[A-Za-z\s]{3,}$/;
+  const phoneRegex = /^03\d{2}-\d{7}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if(!nameRegex.test(name)){ alert("Enter a valid name (letters only, min 3 chars)."); return; }
+  if(!emailRegex.test(email)){ alert("Enter a valid email."); return; }
+  if(!phoneRegex.test(phone)){ alert("Phone format must be 03XX-XXXXXXX."); return; }
+  if(subject.length < 3){ alert("Subject must be at least 3 characters."); return; }
+  if(details.length < 20){ alert("Details must be at least 20 characters."); return; }
+
+  document.getElementById('previewContent').innerHTML = `
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Phone:</strong> ${phone}</p>
+    <hr>
+    <p><strong>Subject:</strong> ${subject}</p>
+    <p><strong>Details:</strong><br>${details.replace(/\n/g,"<br>")}</p>
+  `;
+  previewModal.show();
+});
+
+// Confirm Submit button
+document.getElementById('confirmSubmitBtn').addEventListener('click', () => {
+  form.reset();
+  previewModal.hide();
+  successModal.show();
+});
+</script>
+</body>
+</html>

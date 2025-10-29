@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Services — Sindh Police Golimar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+     .nav-logo {
+    height: 46px;
+  }
+
+:root {
+  --red: #d40000;
+}
+
+    body { background:#0e0e0e; color:#cfd8e6; font-family:'Segoe UI'; }
+
+    /* ✅ NAVBAR (Already Approved Style) */
+    .navbar { background:rgba(0,0,0,0.82); backdrop-filter:blur(6px); border-bottom:2px solid #b30000; }
+    .navbar .nav-link { color:#c9d0df !important; font-weight:600; position:relative; }
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active { color:#ff1a1a !important; }
+    .navbar-brand { display:flex; align-items:center; gap:10px; color:#fff !important; font-weight:900; }
+    .nav-logo { width:40px; filter:drop-shadow(0px 0px 5px #ff0000); }
+        /* --- FOOTER --- */
+footer {
+  background: rgba(6, 6, 6, 0.95);
+  border-top: 4px solid var(--red);
+  color: #d9d9d9;
+  padding: 34px 0 18px;
+  margin-top: 40px;
+}
+
+.footer .logo {
+  height: 64px;
+  filter: drop-shadow(0 10px 22px rgba(212, 0, 0, 0.18));
+}
+
+/* Footer links */
+.footer a {
+  color: #ddd !important;
+  text-decoration: none;
+  transition: .22s ease-in-out;
+}
+
+.footer a:hover {
+  color: var(--red) !important;
+  text-shadow: 0 0 10px rgba(212, 0, 0, 0.2);
+  padding-left: 3px;
+}
+
+/* Footer Headings */
+.footer h6 {
+  color: var(--red) !important;
+  letter-spacing: .5px;
+  font-weight: 600;
+}
+
+.footer ul li {
+  margin-bottom: 6px;
+}
+
+/* Responsive */
+@media (max-width:767px) {
+  .stats-strip {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .hero {
+    height: 66vh;
+    min-height: 420px;
+  }
+
+  .nav-logo {
+    height: 46px;
+  }
+}
+:root {
+  --red: #d40000;
+}
+
+    .services-section {
+  padding: 80px 0;
+  background: #0a0a0a;
+  color: #ddd;
+}
+
+.section-title {
+  color: var(--red);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-subtitle {
+  font-size: 17px;
+  color: #c7c7c7;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: #111;
+  padding: 30px 24px;
+  border-radius: 14px;
+  transition: .25s ease;
+  border: 1px solid rgba(212, 0, 0, 0.15);
+}
+
+.service-card i {
+  font-size: 42px;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.service-card h4 {
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--red);
+  background: #1a0000;
+}
+
+.service-bottom {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.service-bottom h3 {
+  color: var(--red);
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+
+.service-bottom p {
+  color: #d5d5d5;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.cta-btn {
+  background: var(--red);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 26px;
+  border-radius: 50px;
+  transition: .25s;
+  font-weight: 600;
+}
+
+.cta-btn:hover {
+  background: #ff1a1a;
+  padding-left: 32px;
+}
+
+    :root {
+      --red: #d40000;
+      --dark: #000000;
+      --glow: 0 0 12px rgba(212,0,0,0.65);
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #eee;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO (SWAT Spotlight) ===== */
+    .services-hero {
+      height: 60vh;
+      min-height: 430px;
+      background: url('back img hero section.jpeg') center/cover no-repeat;
+      position: relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+
+    .services-hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.7);
+    }
+
+    .services-hero .content {
+      position:relative;
+      z-index:3;
+    }
+
+    .services-hero h1 {
+      font-weight:900;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      text-shadow:var(--glow);
+    }
+
+    .spotlight {
+      position:absolute;
+      top:0;
+      left:-40%;
+      width:60%;
+      height:120%;
+      background:radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+      transform:rotate(20deg);
+      animation: sweep 6s linear infinite;
+      mix-blend-mode:screen;
+    }
+
+    @keyframes sweep {
+      from { left:-60%; }
+      to { left:130%; }
+    }
+
+    /* ===== HEADLINE STRIP ===== */
+    .headline-strip {
+      background:rgba(212,0,0,0.12);
+      border-left:4px solid var(--red);
+      padding:12px;
+      font-size:1.05rem;
+      text-align:center;
+      font-weight:600;
+      text-transform:uppercase;
+    }
+
+    /* ===== SERVICE CARDS ===== */
+    .service-card {
+      background:linear-gradient(145deg,#111,#0a0a0a);
+      border:1px solid rgba(255,0,0,0.25);
+      border-radius:10px;
+      padding:25px;
+      transition:.25s;
+      height:100%;
+      box-shadow: 0 0 18px rgba(212,0,0,0.07);
+    }
+
+    .service-card:hover {
+      border-color:var(--red);
+      transform:translateY(-4px);
+      box-shadow:0 0 25px rgba(212,0,0,0.23);
+    }
+
+    .service-card i {
+      font-size:2rem;
+      margin-bottom:10px;
+      color:var(--red);
+      text-shadow:var(--glow);
+    }
+
+    section {
+      padding:55px 0;
+    }
+
+  </style>
+</head>
+<body>
+    <!-- ✅ NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="sindh police logo.png" class="nav-logo">
+        <div style="line-height:1;">
+          <div style="font-weight:900; font-size:1rem;">Sindh Police</div>
+          <div style="font-size:0.78rem; color:#c8d3e6;">Golimar Thana</div>
+        </div>
+      </a>
+
+      <button class="navbar-toggler btn btn-dark" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <i class="fa fa-bars" style="color:#fff"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About Police Station</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="fir.html">FIR Registration</a></li>
+          <li class="nav-item"><a class="nav-link" href="complaint.html">Complaint Cell</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- ===== HERO ===== -->
+  <header class="services-hero">
+    <div class="spotlight"></div>
+    <div class="content container">
+      <h1>Police Public Services</h1>
+      <p class="lead mt-2" style="color:#c8c8c8;">
+        Swift Action • Smart Enforcement • Secure Community
+      </p>
+    </div>
+  </header>
+
+  <!-- Headline strip -->
+  <div class="headline-strip">
+    Public Safety & Crime Response — Always Operational, Always Ready
+  </div>
+
+  <!-- ===== SERVICES GRID ===== -->
+  <section>
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Tactical Units -->
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa fa-shield-halved"></i>
+            <h5 class="fw-bold mt-2">Rapid Tactical Response</h5>
+            <p class="small mt-2">
+              24/7 crime prevention, on-ground enforcement & quick raid actions in high-risk zones.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa fa-gun"></i>
+            <h5 class="fw-bold mt-2">Anti-Robbery & Crime Unit</h5>
+            <p class="small mt-2">
+              Armed criminals? No escape. Strikes with precision intelligence & armed support.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa fa-user-secret"></i>
+            <h5 class="fw-bold mt-2">Investigation & Surveillance</h5>
+            <p class="small mt-2">
+              CCTV tracking, suspect hunt, and intelligence operations against repeated offenders.
+            </p>
+          </div>
+        </div>
+
+        <!-- Public Services -->
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa fa-file-alt"></i>
+            <h5 class="fw-bold mt-2">FIR Registration Desk</h5>
+            <p class="small mt-2">
+              Official record of criminal activity with proper documentation & immediate action.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa fa-people-roof"></i>
+            <h5 class="fw-bold mt-2">Women & Family Protection</h5>
+            <p class="small mt-2">
+              Dedicated support for harassment, domestic cases & women safety assistance.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="service-card h-100 text-center">
+            <i class="fa fa-phone-volume"></i>
+            <h5 class="fw-bold mt-2">Emergency & Helpline</h5>
+            <p class="small mt-2">
+              Round-the-clock helpline — Immediate police dispatch for any urgent situation.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- ✅ SERVICES SECTION -->
+<section class="services-section text-center">
+  <div class="container">
+    <h2 class="section-title">Our Key Services</h2>
+    <p class="section-subtitle">
+      Securing Golimar with trusted law enforcement, smart response, and public cooperation.
+    </p>
+
+    <div class="row g-4 mt-4">
+      <div class="col-md-4">
+        <div class="service-card">
+          <i class="fa fa-shield"></i>
+          <h4>Crime Prevention</h4>
+          <p>Daily patrolling, intelligence monitoring, and safeguarding high-risk zones.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-card">
+          <i class="fa fa-life-ring"></i>
+          <h4>Emergency Response</h4>
+          <p>Fast reaction to any threat or urgent distress calls from the public.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-card">
+          <i class="fa fa-users"></i>
+          <h4>Community Support</h4>
+          <p>Strong collaboration with residents to build a peaceful neighborhood.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-card">
+          <i class="fa fa-balance-scale"></i>
+          <h4>Law Enforcement</h4>
+          <p>Strict rule enforcement ensuring justice and discipline throughout Golimar.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-card">
+          <i class="fa fa-camera"></i>
+          <h4>Surveillance Operations</h4>
+          <p>Strategic monitoring using technology to prevent and detect crime early.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="service-card">
+          <i class="fa fa-phone"></i>
+          <h4>Helpline Support</h4>
+          <p>Round-the-clock help to assist you in urgent or suspicious situations.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ Extra Professional Section Below the Cards -->
+    <div class="service-bottom mt-5">
+      <h3>We’re Committed to Your Safety</h3>
+      <p>
+        Golimar Thana is dedicated to ensuring every citizen feels protected —  
+        whether at home, on the streets, or at work.  
+        Together, we build a safer tomorrow.
+      </p>
+      <a href="index.html" class="cta-btn">Report a Concern</a>
+    </div>
+
+  </div>
+</section>
+  <!-- PROFESSIONAL FOOTER -->
+<footer class="footer text-light">
+  <div class="container py-5">
+    <div class="row g-4">
+
+      <!-- Logo + Tagline -->
+      <div class="col-md-4 text-center text-md-start">
+        <img src="sindh police logo.png" class="logo mb-3" alt="Sindh Police Logo" style="height:70px;">
+        <p class="small text-white">
+          Golimar Thana — Duty, Courage & Justice. Securing every street,
+          protecting every citizen.
+        </p>
+
+        <!-- Emergency Button -->
+        <a href="tel:15" class="btn btn-urgent mt-2 w-100 fw-bold">
+          <i class="fa fa-phone me-2"></i>Emergency Helpline: 15
+        </a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-2">
+        <h6 class="fw-bold text-uppercase mb-3" style="color:var(--red)">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Station</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="fir.html">FIR Registration</a></li>
+          <li><a href="complaint.html">Complaint Cell</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-3">
+        <h6 class="fw-bold text-uppercase mb-3" style="color:var(--red)">Contact Info</h6>
+        <ul class="list-unstyled small">
+          <li><i class="fa fa-location-dot me-2"></i>Golimar, Karachi</li>
+          <li><i class="fa fa-envelope me-2"></i>contact@golimarpolice.pk</li>
+          <li><i class="fa fa-phone me-2"></i>021-XXXXXXX</li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="col-md-3 text-center text-md-start">
+        <h6 class="fw-bold text-uppercase mb-3" style="color:var(--red)">Stay Connected</h6>
+        <div class="d-flex gap-3 justify-content-center justify-content-md-start fs-5">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="text-center py-3 small" style="background:rgba(255,0,0,0.06); border-top:1px solid rgba(255,0,0,0.2);">
+    © <span id="year"></span> Sindh Police - Golimar Thana. All Rights Reserved.
+  </div>
+</footer>
+
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

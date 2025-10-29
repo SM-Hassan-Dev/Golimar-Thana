@@ -1,0 +1,1207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sindh Police - Golimar Thana</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FontAwesome (icons) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Footer CSS */
+    .footer a {
+  color: white !important;
+}
+
+.footer h6 {
+  color: var(--red) !important;
+}
+
+    .footer h6 {
+  letter-spacing: .5px;
+}
+
+.footer ul li {
+  margin-bottom: 6px;
+}
+
+.footer a:hover {
+  color: var(--accent) !important;
+  padding-left: 2px;
+}
+
+    /* Alert modal css */
+    /* Professional Alert Modal Styles */
+    #reportSuccessModal .modal-content {
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #reportSuccessModal .btn-urgent {
+      background: var(--red);
+      border: 0;
+      font-weight: 700;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    #reportSuccessModal .btn-urgent:hover {
+      background: #ff4d4d;
+      transform: scale(1.05);
+    }
+
+    #reportSuccessModal .btn-close-white {
+      filter: invert(1);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 86vh;
+      min-height: 540px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 1100px;
+      padding: 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+      margin-bottom: 15px;
+    }
+
+    .hero p.lead {
+      color: #ffd7d7;
+      font-weight: 600;
+      font-size: 1.25rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 25px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Hero buttons */
+    .hero .btn-urgent,
+    .hero .btn-outline-light {
+      font-weight: 700;
+      padding: 0.9rem 1.3rem;
+      border-radius: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .hero .btn-urgent:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212, 0, 0, 0.45);
+    }
+
+    .hero .btn-outline-light:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Navbar Container */
+    .navbar {
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid rgba(212, 0, 0, 0.2);
+      padding: 0.7rem 1.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      z-index: 999;
+    }
+
+    /* Brand logo */
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      transition: transform 0.25s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.05);
+    }
+
+    /* Logo image */
+    .nav-logo {
+      height: 52px;
+      border-radius: 8px;
+      filter: drop-shadow(0 6px 18px rgba(212, 0, 0, 0.25));
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 25px rgba(212, 0, 0, 0.4);
+    }
+
+    /* Navigation Links */
+    .navbar-nav .nav-link {
+      color: #d6d6d6 !important;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    /* Hover effect: glow red */
+    .navbar-nav .nav-link:hover {
+      color: #d40000 !important;
+      /* red on hover */
+      background: rgba(212, 0, 0, 0.08);
+      box-shadow: 0 6px 18px rgba(212, 0, 0, 0.35);
+      text-shadow: 0 0 6px rgba(212, 0, 0, 0.7);
+    }
+
+    /* Active page link */
+    .navbar-nav .nav-item.active .nav-link {
+      color: #d40000 !important;
+      /* red active */
+      font-weight: 700;
+      background: rgba(212, 0, 0, 0.12);
+      box-shadow: 0 6px 22px rgba(212, 0, 0, 0.25);
+    }
+
+    /* Toggler button (hamburger) */
+    .navbar-toggler {
+      border: none;
+      background: rgba(212, 0, 0, 0.8);
+      transition: all 0.25s ease;
+    }
+
+    .navbar-toggler:hover {
+      background: rgba(212, 0, 0, 1);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+      .nav-logo {
+        height: 46px;
+      }
+
+      .navbar-nav {
+        background: rgba(0, 0, 0, 0.85);
+        padding: 10px 0;
+        border-radius: 8px;
+      }
+
+      .navbar-nav .nav-link {
+        margin: 0 5px;
+      }
+    }
+
+
+    /* Active page link */
+    .navbar-nav .nav-item.active .nav-link {
+      color: #fff !important;
+      font-weight: 700;
+      background: rgba(212, 0, 0, 0.15);
+      box-shadow: 0 6px 22px rgba(212, 0, 0, 0.25);
+    }
+
+    /* Toggler button (hamburger) */
+    .navbar-toggler {
+      border: none;
+      background: rgba(212, 0, 0, 0.8);
+      transition: all 0.25s ease;
+    }
+
+    .navbar-toggler:hover {
+      background: rgba(212, 0, 0, 1);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767px) {
+      .nav-logo {
+        height: 46px;
+      }
+
+      .navbar-nav {
+        background: rgba(0, 0, 0, 0.85);
+        padding: 10px 0;
+        border-radius: 8px;
+      }
+
+      .navbar-nav .nav-link {
+        margin: 0 5px;
+      }
+    }
+
+    /* --- Colors & base --- */
+    :root {
+      --bg: #000;
+      --panel: #0f1113;
+      --red: #d40000;
+      --accent: #ff4d4d;
+      --muted: #cfcfcf;
+    }
+
+    body {
+      background: linear-gradient(180deg, #050506 0%, #0a0a0b 100%);
+      color: #e9eef5;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+
+    /* --- NAVBAR (clean professional) --- */
+    .navbar {
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid rgba(212, 0, 0, 0.12);
+      padding: .6rem 1.25rem;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .nav-logo {
+      height: 52px;
+      border-radius: 8px;
+      filter: drop-shadow(0 6px 18px rgba(212, 0, 0, 0.25));
+      transition: transform .25s ease;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.06);
+    }
+
+    .nav-link {
+      color: #d6d6d6 !important;
+      padding: .4rem .75rem;
+      border-radius: 6px;
+      transition: all .18s ease;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: #fff !important;
+      background: rgba(16, 45, 99, 0.14);
+      box-shadow: 0 6px 20px rgba(212, 0, 0, 0.06);
+    }
+
+    /* active only bold - no red by default */
+    .nav-item.active .nav-link {
+      color: #fff !important;
+      font-weight: 700;
+      border-bottom: none;
+    }
+
+    /* --- HERO (slideshow with red siren overlay) --- */
+    .hero {
+      position: relative;
+      height: 86vh;
+      min-height: 540px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-position: center;
+      background-size: cover;
+      opacity: 0;
+      transform: scale(1.03);
+      transition: opacity 900ms ease, transform 900ms ease;
+      filter: brightness(.8) contrast(1.05);
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.28));
+      z-index: 2;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 1100px;
+      padding: 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero p.lead {
+      color: #ffd7d7;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+
+    /* red siren sweep (pure red theme) */
+    .siren {
+      position: absolute;
+      left: 50%;
+      top: 10px;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .siren .light {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 12px rgba(212, 0, 0, 0.85);
+      animation: blink 1s linear infinite;
+    }
+
+    .siren .light.delay {
+      animation-delay: .4s;
+      opacity: .9;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: .18;
+        transform: translateY(0)
+      }
+
+      50% {
+        opacity: 1
+      }
+
+      100% {
+        opacity: .18;
+        transform: translateY(-2px)
+      }
+    }
+
+    /* CTA buttons */
+    .btn-urgent {
+      background: var(--red);
+      color: #fff;
+      border: 0;
+      font-weight: 800;
+      padding: .9rem 1.2rem;
+      border-radius: 10px;
+    }
+
+    .btn-outline-light {
+      border-radius: 10px;
+      padding: .75rem 1rem;
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    /* --- quick stats strip --- */
+    .stats-strip {
+      max-width: 1100px;
+      margin: 18px auto 0;
+      background: rgba(255, 0, 0, 0.04);
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat .num {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--red);
+    }
+
+    .stat small {
+      color: #c9d0df;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* --- main sections --- */
+    main {
+      padding-top: 28px;
+    }
+
+    .section {
+      padding: 56px 0;
+    }
+
+    .card-pro {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: 12px;
+      padding: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition: transform .22s ease;
+    }
+
+    .card-pro:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+    }
+
+    .section-title {
+      color: #fff;
+      font-weight: 900;
+      margin-bottom: 18px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .section-sub {
+      color: #c9d0df;
+      margin-bottom: 22px;
+    }
+
+    /* --- services grid --- */
+    .service .icon {
+      font-size: 22px;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+
+    /* --- wanted cards --- */
+    .wanted-card img {
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .wanted-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--red);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(212, 0, 0, 0.2);
+    }
+
+    /* --- achievements counter --- */
+    .ach-num {
+      font-size: 1.6rem;
+      color: var(--red);
+      font-weight: 900;
+    }
+
+    /* --- emergency banner --- */
+    .emergency-banner {
+      background: linear-gradient(90deg, rgba(212, 0, 0, 0.95), rgba(30, 0, 0, 0.95));
+      color: #fff;
+      padding: 18px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 14px 40px rgba(212, 0, 0, 0.12);
+    }
+
+    /* --- gallery --- */
+    .gallery img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform .28s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* --- footer --- */
+    footer {
+      background: rgba(6, 6, 6, 0.95);
+      border-top: 4px solid var(--red);
+      color: #d9d9d9;
+      padding: 34px 0 18px;
+      margin-top: 40px;
+    }
+
+    .footer .logo {
+      height: 64px;
+      filter: drop-shadow(0 10px 22px rgba(212, 0, 0, 0.18));
+    }
+
+    .footer a {
+      color: #ddd;
+      text-decoration: none;
+      transition: .18s;
+    }
+
+    .footer a:hover {
+      color: var(--red);
+      text-shadow: 0 0 10px rgba(212, 0, 0, 0.12);
+    }
+
+    /* responsive */
+    @media (max-width:767px) {
+      .stats-strip {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .hero {
+        height: 66vh;
+        min-height: 420px;
+      }
+
+      .nav-logo {
+        height: 46px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR (kept structure same, improved style) -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="sindh police logo.png" class="nav-logo" alt="Sindh Police Logo">
+        <div style="line-height:1;">
+          <div style="font-weight:900; font-size:1rem; color:#fff;">Sindh Police</div>
+          <div style="font-size:0.78rem; color:#c8d3e6; opacity:.95;">Golimar Thana</div>
+        </div>
+      </a>
+
+      <button class="navbar-toggler btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <i class="fa fa-bars" style="color:#fff"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item active"><a class="nav-link" href="about.html">About Police Station</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="fir.html">FIR Registration</a></li>
+          <li class="nav-item"><a class="nav-link" href="complaint.html">Complaint Cell</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO: slideshow with pure-red siren overlay -->
+  <header class="hero">
+    <div class="slide active" style="background-image:url('back\ img\ hero\ section.jpeg');"></div>
+    <div class="slide" style="background-image:url('back\ img\ hero\ section.jpeg');"></div>
+    <div class="slide" style="background-image:url('back\ img\ hero\ section.jpeg');"></div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="siren">
+      <div class="light"></div>
+      <div class="light delay"></div>
+      <div class="light"></div>
+    </div>
+
+    <div class="hero-inner container text-center">
+      <h1>GOLIMAR THANA — Duty. Courage. Justice. Jurm Ka Ant!</h1>
+      <p class="lead">Rapid Enforcement • 24/7 Response • Community Protection</p>
+
+      <div class="d-flex justify-content-center gap-2 mt-3">
+        <button class="btn btn-urgent me-2" data-bs-toggle="modal" data-bs-target="#reportModal"><i
+            class="fa fa-bullhorn me-2"></i>Report Emergency</button>
+        <a href="services.html" class="btn btn-outline-light"><i class="fa fa-info-circle me-2"></i>View Services</a>
+      </div>
+
+      <div class="stats-strip mt-4">
+        <div class="stat">
+          <div class="num">+1,240</div><small>Resolved Cases</small>
+        </div>
+        <div class="stat">
+          <div class="num">24/7</div><small>Response</small>
+        </div>
+        <div class="stat">
+          <div class="num">180+</div><small>Patrols</small>
+        </div>
+        <div class="stat"><small style="color:#c9d0df">Updated: <span id="statDate"></span></small></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- REPORT MODAL (Quick FIR) -->
+  <div class="modal fade" id="reportModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content card-pro">
+        <div class="modal-header">
+          <h5 class="modal-title">Quick Emergency Report (Demo)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="quickReportForm">
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label">Full Name</label><input id="rep_name" class="form-control"
+                  required></div>
+              <div class="col-md-6"><label class="form-label">Contact Number</label><input id="rep_phone"
+                  class="form-control" placeholder="03XX-XXXXXXX" required></div>
+              <div class="col-12"><label class="form-label">Incident Title</label><input id="rep_title"
+                  class="form-control" required></div>
+              <div class="col-12"><label class="form-label">Details</label><textarea id="rep_details"
+                  class="form-control" rows="4" required></textarea></div>
+              <div class="col-md-6"><label class="form-label">Date & Time</label><input id="rep_time"
+                  type="datetime-local" class="form-control"></div>
+              <div class="col-md-6"><label class="form-label">Location (approx.)</label><input id="rep_loc"
+                  class="form-control" placeholder="Golimar, Karachi"></div>
+            </div>
+            <small class="text-muted">This is a front-end demo — formal FIR requires station/backend processing.</small>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline-light" type="button" data-bs-dismiss="modal">Cancel</button>
+            <button class="btn btn-urgent" type="submit">Send Report</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- PROFESSIONAL CONFIRMATION MODAL -->
+    <!-- PROFESSIONAL ALERT MODAL (UPGRADED DESIGN) -->
+    <div class="modal fade" id="reportSuccessModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4"
+          style="border-radius:12px; border:2px solid var(--red); background: linear-gradient(180deg, #0b0b0b, #1a1a1a); box-shadow:0 16px 40px rgba(212,0,0,0.4);">
+
+          <div class="modal-header border-0 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+              <div style="font-size:2rem; color:var(--red);"><i class="fa fa-check-circle"></i></div>
+              <h5 class="modal-title fw-bold text-white">Report Submitted</h5>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body text-white" style="line-height:1.6;">
+            <p><strong>Success!</strong> Your emergency report has been securely submitted.</p>
+            <p>Our Golimar Thana team will review your report and respond promptly with the necessary action.</p>
+            <p>Please stay safe and keep your contact accessible until assistance arrives.</p>
+          </div>
+
+          <div class="modal-footer border-0 justify-content-center">
+            <button type="button" class="btn btn-urgent px-4 py-2" data-bs-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- ABOUT (upgraded) -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <div class="card-pro">
+              <h3 class="section-title">About Golimar Police Station</h3>
+              <p class="section-sub">Golimar Thana is the frontline enforcement unit for its precinct. We combine
+                rapid-field response, intelligence-driven investigations and community outreach to keep citizens safe.
+              </p>
+
+              <p>Golimar Police Station operates 24/7 with specialized patrol units, tactical response teams and a
+                dedicated investigation branch. With modern surveillance, mobile deployment and community liaisons, the
+                station focuses on fast intervention, prevention tactics and victim support.</p>
+
+              <p>Our commitment: fair enforcement, timely justice and building trust with the public. We prioritize
+                transparent investigations, accountability and continuous training for our officers to meet the evolving
+                crime patterns.</p>
+
+              <div class="row mt-3 text-center">
+                <div class="col-4">
+                  <div class="ach-num">24/7</div><small class="muted">Emergency Response</small>
+                </div>
+                <div class="col-4">
+                  <div class="ach-num">300+</div><small class="muted">Arrests (Year)</small>
+                </div>
+                <div class="col-4">
+                  <div class="ach-num">180+</div><small class="muted">Patrols</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="card-pro text-center">
+              <h5 class="fw-bold" style="color:var(--red)">Message from SP</h5>
+              <img src="ig sindh.jpg" alt="SP"
+                style="width:120px;height:120px;border-radius:12px;object-fit:cover;margin-bottom:12px;">
+              <p class="muted">"Hamari zimmedari aap ki hifazat. Hum har roz khud ko behtar banate hain aur jurm se
+                larhte hain. Aap hum pe bharosa rakhein."</p>
+              <p class="fw-bold mb-0">SP Golimar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section"
+      style="background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);">
+      <div class="container">
+        <h3 class="section-title">Services & Operations</h3>
+        <p class="section-sub">Comprehensive services available to citizens — emergency response, FIR assistance,
+          investigations, patrols, and community programs.</p>
+
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card-pro service text-center h-100">
+              <div class="icon"><i class="fa fa-phone"></i></div>
+              <h5>Emergency Response</h5>
+              <p class="muted">Call 15 for immediate police assistance. Rapid units deploy immediately.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-pro service text-center h-100">
+              <div class="icon"><i class="fa fa-search"></i></div>
+              <h5>Investigation Unit</h5>
+              <p class="muted">Special teams investigate property crime, assault and organized crime patterns.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-pro service text-center h-100">
+              <div class="icon"><i class="fa fa-people-group"></i></div>
+              <h5>Community Policing</h5>
+              <p class="muted">Local outreach, safety programs and awareness to reduce crime at source.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WANTED / MOST WANTED CARDS -->
+    <section id="wanted" class="section">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h3 class="section-title">Most Wanted / Recent Operations</h3>
+          <div><a class="btn btn-outline-light" href="wanted.html"><i class="fa fa-eye me-1"></i>See All</a></div>
+        </div>
+
+        <div class="row g-3">
+          <!-- Card 1 -->
+          <div class="col-md-4">
+            <div class="position-relative wanted-card card-pro">
+              <span class="wanted-badge">WANTED</span>
+              <img src="ahsan matha.jpg" class="w-100" alt="">
+              <div class="p-3">
+                <h5 class="fw-bold">Suspect: Rajputi Lakshmi</h5>
+                <p class="muted mb-2">Multiple thefts in Golimar area. Reward for information.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-urgent btn-sm" href="#">Report</a>
+                  <a class="btn btn-outline-light btn-sm" href="#" data-bs-toggle="modal"
+                    data-bs-target="#modalAli">Details</a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-4">
+            <div class="position-relative wanted-card card-pro">
+              <span class="wanted-badge">WANTED</span>
+              <img src="ahsan chor.jpg" class="w-100" alt="">
+              <div class="p-3">
+                <h5 class="fw-bold">Suspect: Rajput rangri</h5>
+                <p class="muted mb-2">Involved in armed robbery. Do not approach — call helpline.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-urgent btn-sm" href="#">Report</a>
+                  <a class="btn btn-outline-light btn-sm" href="#" data-bs-toggle="modal"
+                    data-bs-target="#modalImran">Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-4">
+            <div class="position-relative wanted-card card-pro">
+              <span class="wanted-badge">WANTED</span>
+              <img src="talwar ahsan.jpg" class="w-100" alt="">
+              <div class="p-3">
+                <h5 class="fw-bold">Suspect: Ahsan Sick ranjowi</h5>
+                <p class="muted mb-2">Help identify this person. Contact Golimar Thana.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-urgent btn-sm" href="#">Report</a>
+                  <a class="btn btn-outline-light btn-sm" href="#" data-bs-toggle="modal"
+                    data-bs-target="#modalUnknown">Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- MODAL FOR ALI R. -->
+    <div class="modal fade" id="modalAli" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content card-pro p-4"
+          style="border:2px solid var(--red); background:linear-gradient(180deg,#0b0b0b,#1a1a1a); box-shadow:0 16px 40px rgba(212,0,0,0.4);">
+          <div class="modal-header border-0 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+              <div style="font-size:2rem; color:var(--red);"><i class="fa fa-exclamation-triangle"></i></div>
+              <h5 class="modal-title fw-bold text-white">Suspect: Rajputi Lakshmi</h5>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body text-white">
+            <p>Multiple thefts reported in the Golimar area.</p>
+            <p>Authorities are actively searching for this individual.</p>
+            <p>Reward available for credible information leading to arrest.</p>
+          </div>
+          <div class="modal-footer border-0 justify-content-center">
+            <button type="button" class="btn btn-urgent px-4 py-2" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL FOR IMRAN K. -->
+    <div class="modal fade" id="modalImran" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content card-pro p-4"
+          style="border:2px solid var(--red); background:linear-gradient(180deg,#0b0b0b,#1a1a1a); box-shadow:0 16px 40px rgba(212,0,0,0.4);">
+          <div class="modal-header border-0 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+              <div style="font-size:2rem; color:var(--red);"><i class="fa fa-gun"></i></div>
+              <h5 class="modal-title fw-bold text-white">Suspect: Rajput rangri</h5>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body text-white">
+            <p>Involved in armed robbery in the Golimar area.</p>
+            <p>Do not approach this individual personally.</p>
+            <p>Contact the police helpline immediately with any information.</p>
+          </div>
+          <div class="modal-footer border-0 justify-content-center">
+            <button type="button" class="btn btn-urgent px-4 py-2" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL FOR UNKNOWN SUSPECT -->
+    <div class="modal fade" id="modalUnknown" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content card-pro p-4"
+          style="border:2px solid var(--red); background:linear-gradient(180deg,#0b0b0b,#1a1a1a); box-shadow:0 16px 40px rgba(212,0,0,0.4);">
+          <div class="modal-header border-0 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-2">
+              <div style="font-size:2rem; color:var(--red);"><i class="fa fa-user-secret"></i></div>
+              <h5 class="modal-title fw-bold text-white">Suspect: Ahsan Sick ranjowi</h5>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body text-white">
+            <p>Authorities are seeking help identifying this person.</p>
+            <p>If recognized, please contact Golimar Thana immediately.</p>
+            <p>Do not attempt to confront; leave it to law enforcement.</p>
+          </div>
+          <div class="modal-footer border-0 justify-content-center">
+            <button type="button" class="btn btn-urgent px-4 py-2" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAP + CONTACT CTA -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-7">
+            <div class="card-pro">
+              <h4 class="section-title">Jurisdiction Map (Placeholder)</h4>
+              <p class="section-sub">Golimar area boundary & patrol zones. Replace with official embedded map if
+                available.</p>
+              <div
+                style="height:300px; border-radius:12px; overflow:hidden; background:linear-gradient(180deg,#111,#0b0b0b); display:flex; align-items:center; justify-content:center; color:#777;">
+                Map Placeholder — Embed Google Map or Mapbox here
+                <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dBigNumber!2d67.023506!3d24.888658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb335b9f2a9c9d5%3A0xBigHash!2sGolimar%2C%20Karachi%20District%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2sus!4vTimestamp"
+  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+</iframe>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="card-pro emergency-banner">
+              <h5 style="margin-bottom:6px;">EMERGENCY HOTLINE</h5>
+              <p style="margin:0; font-weight:800; font-size:1.25rem;">Call: 15 — Police Response</p>
+              <p class="muted" style="margin-top:8px;">Golimar Thana Contact: <strong>021-XXXXXXX</strong></p>
+              <div class="mt-3">
+                <a class="btn btn-outline-light me-2" href="contact.html">Contact Desk</a>
+                <button class="btn btn-urgent" data-bs-toggle="modal" data-bs-target="#reportModal">Report Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMAND TEAM -->
+    <section class="section">
+      <div class="container">
+        <h3 class="section-title">Command Team</h3>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="card-pro text-center p-4">
+              <img src="card 1 image.jpeg"
+                style="width:110px;height:110px;border-radius:12px;object-fit:cover;margin-bottom:10px;">
+              <h5 class="fw-bold text-danger">SP — Zeshaan Siddique</h5>
+              <p class="muted">Station Head — Strategic Operations</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-pro text-center p-4">
+              <img src="DSP img.jpg"
+                style="width:110px;height:110px;border-radius:12px;object-fit:cover;margin-bottom:10px;">
+              <h5 class="fw-bold text-danger">DSP — Arif Alvi</h5>
+              <p class="muted">Detective & Tactical Command</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-pro text-center p-4">
+              <img src="SHO img.jpeg"
+                style="width:110px;height:110px;border-radius:12px;object-fit:cover;margin-bottom:10px;">
+              <h5 class="fw-bold text-danger">SHO — Abid Shah</h5>
+              <p class="muted">Field Response Commander</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="section" style="background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);">
+      <div class="container">
+        <h3 class="section-title">Achievements</h3>
+        <div class="row g-3">
+          <div class="col-md-3">
+            <div class="card-pro text-center p-3">
+              <div class="ach-num">87%</div>
+              <div class="muted">Crime reduction (hotspots)</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card-pro text-center p-3">
+              <div class="ach-num">300+</div>
+              <div class="muted">Arrests this year</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card-pro text-center p-3">
+              <div class="ach-num">7 min</div>
+              <div class="muted">Avg response time</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card-pro text-center p-3">
+              <div class="ach-num">180+</div>
+              <div class="muted">Patrol squads</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section">
+      <div class="container">
+        <h3 class="section-title">Operations Gallery</h3>
+        <div class="row g-3 gallery">
+          <div class="col-sm-6 col-md-3"><img src="operation 1.jpg" alt=""></div>
+          <div class="col-sm-6 col-md-3"><img src="operation 2.jpg" alt=""></div>
+          <div class="col-sm-6 col-md-3"><img src="operation 3.webp" alt=""></div>
+          <div class="col-sm-6 col-md-3"><img src="operation 4.jpg" alt=""></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (professional) -->
+ <!-- PROFESSIONAL FOOTER -->
+<footer class="footer text-light">
+  <div class="container py-5">
+    <div class="row g-4">
+
+      <!-- Logo + Tagline -->
+      <div class="col-md-4 text-center text-md-start">
+        <img src="sindh police logo.png" class="logo mb-3" alt="Sindh Police Logo" style="height:70px;">
+        <p class="small text-white">
+          Golimar Thana — Duty, Courage & Justice. Securing every street,
+          protecting every citizen.
+        </p>
+
+        <!-- Emergency Button -->
+        <a href="tel:15" class="btn btn-urgent mt-2 w-100 fw-bold">
+          <i class="fa fa-phone me-2"></i>Emergency Helpline: 15
+        </a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-2">
+        <h6 class="fw-bold text-uppercase mb-3" style="color:var(--red)">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Station</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="fir.html">FIR Registration</a></li>
+          <li><a href="complaint.html">Complaint Cell</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-3">
+        <h6 class="fw-bold text-uppercase mb-3" style="color:var(--red)">Contact Info</h6>
+        <ul class="list-unstyled small">
+          <li><i class="fa fa-location-dot me-2"></i>Golimar, Karachi</li>
+          <li><i class="fa fa-envelope me-2"></i>contact@golimarpolice.pk</li>
+          <li><i class="fa fa-phone me-2"></i>021-XXXXXXX</li>
+        </ul>
+      </div>
+
+      <!-- Social -->
+      <div class="col-md-3 text-center text-md-start">
+        <h6 class="fw-bold text-uppercase mb-3" style="color:var(--red)">Stay Connected</h6>
+        <div class="d-flex gap-3 justify-content-center justify-content-md-start fs-5">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="text-center py-3 small" style="background:rgba(255,0,0,0.06); border-top:1px solid rgba(255,0,0,0.2);">
+    © <span id="year"></span> Sindh Police - Golimar Thana. All Rights Reserved.
+  </div>
+</footer>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Stats date
+    document.getElementById('statDate').innerText = new Date().toLocaleDateString();
+
+    // Hero slideshow
+    (function () {
+      const slides = document.querySelectorAll('.slide');
+      let idx = 0;
+      function show(n) { slides.forEach((s, i) => s.classList.toggle('active', i === n)); }
+      show(0);
+      setInterval(() => { idx = (idx + 1) % slides.length; show(idx); }, 6000);
+    })();
+
+    // Quick report (localStorage demo)
+
+    // Alert modal script//
+    (function () {
+      const form = document.getElementById('quickReportForm');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Save to localStorage (demo)
+        const data = {
+          id: 'r' + Date.now(),
+          name: document.getElementById('rep_name').value.trim(),
+          phone: document.getElementById('rep_phone').value.trim(),
+          title: document.getElementById('rep_title').value.trim(),
+          details: document.getElementById('rep_details').value.trim(),
+          time: document.getElementById('rep_time').value || new Date().toISOString(),
+          loc: document.getElementById('rep_loc').value.trim()
+        };
+        const key = 'golimar_reports_v2';
+        const list = JSON.parse(localStorage.getItem(key) || '[]');
+        list.unshift(data);
+        localStorage.setItem(key, JSON.stringify(list));
+
+        // Hide the form modal
+        const reportModalEl = document.getElementById('reportModal');
+        const reportModal = bootstrap.Modal.getInstance(reportModalEl) || new bootstrap.Modal(reportModalEl);
+        reportModal.hide();
+
+        // Show professional confirmation modal
+        const successModalEl = document.getElementById('reportSuccessModal');
+        const successModal = new bootstrap.Modal(successModalEl);
+        successModal.show();
+
+        // Reset form
+        form.reset();
+      });
+    })();
+
+
+  </script>
+</body>
+
+</html>
